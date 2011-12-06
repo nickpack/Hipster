@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>Online users</title>
+	<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+	<p>Users Online: <span id="noUsers">0</span></p>
+	<script type="text/javascript">
+  		var socket = io.connect('http://localhost:3000');
+  		socket.on('onlineusers', function (data) {
+    		document.getElementById('noUsers').innerHTML = data.users;
+  		});
+	</script>
+</body>
+</html>
